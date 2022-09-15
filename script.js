@@ -79,10 +79,12 @@ const gameOver = () => {
   display.classList.add("inactive");
   // show result
   resultModal.innerHTML += `
-    <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
-    <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
-    <button onclick="closeModal()">Close</button>
+    <div>
+      <h1>Finished!</h1>
+      <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+      <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
   `;
 
   addHistory(questionText, timeTaken, errorCount);
@@ -120,7 +122,7 @@ const start = () => {
       startTime = new Date().getTime();
     }
     count--;
-  }, 500);
+  }, 100);
 };
 
 // START Countdown
