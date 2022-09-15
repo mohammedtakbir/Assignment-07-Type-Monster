@@ -36,7 +36,7 @@ body {
 }
 
 #display {
-  height: 100px;
+  padding: 40px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -194,5 +194,9 @@ button {
   }
   #histories{
     grid-template-columns: 1fr;
+  }
+  #display {
+    padding: 30px 20px;
+    font-size: 28px;
   }
 }

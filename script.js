@@ -24,7 +24,7 @@ const typeController = (e) => {
   const newLetter = e.key;
 
   // Handle backspace press
-  if (newLetter == "Backspace") {
+  if (newLetter === "Backspace") {
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
@@ -45,15 +45,14 @@ const typeController = (e) => {
   if (newLetterCorrect) {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
-    display.innerHTML += `<span class="red" ${errorCount++}>${newLetter === " " ? "▪" : newLetter}</span>`;
+    errorCount++;
+    display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
-
   // check if given question text is equal to user typed text
   if (questionText === userText) {
     gameOver();
   }
 };
-
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
     return true;
@@ -81,8 +80,8 @@ const gameOver = () => {
   resultModal.innerHTML += `
     <div>
       <h1>Finished!</h1>
-      <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
-      <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+      <p style="margin-top: 10px;">You took: <span class="bold">${timeTaken}</span> seconds</p>
+      <p style="margin-top: 5px; margin-bottom: 15px;">You made <span class="bold red">${errorCount}</span> mistakes</p>
       <button onclick="closeModal()">Close</button>
     </div>
   `;
